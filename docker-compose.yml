@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  weather-app:
+    build: .
+    container_name: weather_prediction
+    volumes:
+      - .:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
